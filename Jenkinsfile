@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 echo "Cloning Repo"
-                checkout scm
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/hamza-shahzadd/Mlops_Task2.git']])
             }
         }
         stage('Install Dependencies') {
@@ -30,6 +30,6 @@ pipeline {
                     }
                 }
             }
-        }
-    }
+        }
+    }
 }
